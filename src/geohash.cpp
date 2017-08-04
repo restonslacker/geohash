@@ -1,4 +1,5 @@
 #include "cgeohash.h"
+// [[Rcpp::interfaces(r, cpp)]]
 
 //'@title Encode Latitude and Longitude Values
 //'@description \code{\link{gh_encode}} generates geohashes of a

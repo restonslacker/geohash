@@ -1,19 +1,25 @@
 #include <R.h>
 #include <Rinternals.h>
-#include <stdlib.h>
+#include <stdlib.h> // for NULL
 #include <R_ext/Rdynload.h>
 
+/* FIXME: 
+   Check these declarations against the C/Fortran source code.
+*/
+
 /* .Call calls */
-extern SEXP geohash_gh_decode(SEXP);
-extern SEXP geohash_gh_encode(SEXP, SEXP, SEXP);
-extern SEXP geohash_gh_neighbour(SEXP, SEXP);
-extern SEXP geohash_gh_neighbours(SEXP);
+extern SEXP _geohash_gh_decode(SEXP);
+extern SEXP _geohash_gh_encode(SEXP, SEXP, SEXP);
+extern SEXP _geohash_gh_neighbour(SEXP, SEXP);
+extern SEXP _geohash_gh_neighbours(SEXP);
+extern SEXP _geohash_RcppExport_registerCCallable();
 
 static const R_CallMethodDef CallEntries[] = {
-    {"geohash_gh_decode",     (DL_FUNC) &geohash_gh_decode,     1},
-    {"geohash_gh_encode",     (DL_FUNC) &geohash_gh_encode,     3},
-    {"geohash_gh_neighbour",  (DL_FUNC) &geohash_gh_neighbour,  2},
-    {"geohash_gh_neighbours", (DL_FUNC) &geohash_gh_neighbours, 1},
+    {"_geohash_gh_decode",                    (DL_FUNC) &_geohash_gh_decode,                    1},
+    {"_geohash_gh_encode",                    (DL_FUNC) &_geohash_gh_encode,                    3},
+    {"_geohash_gh_neighbour",                 (DL_FUNC) &_geohash_gh_neighbour,                 2},
+    {"_geohash_gh_neighbours",                (DL_FUNC) &_geohash_gh_neighbours,                1},
+    {"_geohash_RcppExport_registerCCallable", (DL_FUNC) &_geohash_RcppExport_registerCCallable, 0},
     {NULL, NULL, 0}
 };
 

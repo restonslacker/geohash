@@ -11,7 +11,7 @@ License: MIT + file LICENSE
 URL: https://github.com/Ironholds/geohash/
 BugReports: https://github.com/Ironholds/geohash/issues
 LazyData: TRUE
-LinkingTo: Rcpp
+LinkingTo: Rcpp (>= 0.12.12)
 Imports:
     Rcpp
 RoxygenNote: 6.0.1
